@@ -1,0 +1,56 @@
+/*@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';*/
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+html, body { height: 100%;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #CCCBCB;
+     }
+
+     .mt-100{
+          margin-top: 100px;
+      }
+
+      .mb-100{
+        margin-bottom: 100px;
+    }
+      
+      .mt-150{
+          margin-top: 150px;
+      }
+      .my-250{
+          margin:250px 0;
+      }
+      
+      .my-150{
+          margin:150px 0;
+      }
+      .my-100{
+        margin:100px 0;
+    }
+            
+      .my-50{
+        margin:50px 0;
+    }
+
+    .slick-prev:before, .slick-next:before{
+        color:black !important;
+        font-size: 40px !important;
+        position: absolute;
+
+    }
+    
+    .slick-prev:before{
+        left: 0;
+    }
+
+    .slick-next:before{
+        right:0
+    }
+
+    @media(max-width: 768px){
+        .slick-prev:before, .slick-next:before{
+            display: none;
+        }
+    }
+
+    .footer{
+        
+    }

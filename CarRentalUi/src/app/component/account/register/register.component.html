@@ -1,0 +1,49 @@
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="card login-content shadow-lg border-0">
+          <div class="card-body">           
+          
+          <div class="text-center">
+              <img class="logo" src="https://cdn3.iconfinder.com/data/icons/galaxy-open-line-gradient-i/200/account-256.png">
+            </div>
+            <h3 class="text-logo">Register</h3>
+            <br>
+            <form class="text-center" [formGroup]="registerForm" (ngSubmit)="RegisterUser()" >
+                <div class="form-group ">
+                    <input class="form-control border-0" type="text" name="firstName" placeholder="First name" formControlName="firstName" >
+                    <div class="error-validation-msg" *ngIf=" registerForm.get('firstName').hasError('required') && registerForm.get('firstName').touched ">First name is required.</div>
+                </div>
+
+              <br>
+              <div class="form-group ">
+                <input class="form-control border-0" type="text" name="lastName" placeholder="Last name" formControlName="lastName" >
+            </div>
+
+          <br>
+          <div class="form-group ">
+            <input class="form-control border-0" type="email" name="email" placeholder="email" formControlName="email" >
+            <div class="error-validation-msg" *ngIf=" registerForm.get('email').hasError('required') && registerForm.get('email').touched ">Email is required.</div>
+        </div>
+      <br>
+        <div class="form-group mb-5">
+            <input class="form-control border-0 " [type]="showPassword ? 'password' : 'text' " name="password" placeholder="Password" formControlName="password">
+            <span class="icon" (click)="toggleShow()">                    
+                <i class="fa-regular fa-eye{{showPassword?'-slash':''}} fa-lg"></i>
+            </span>
+            <div class="error-validation-msg" *ngIf=" registerForm.get('password').hasError('required') && registerForm.get('password').touched ">Password is required.</div>
+        </div>
+
+              <br>
+              <button class="btn btn-primary btn-sm border-0"  [disabled]="registerForm.invalid" type="submit">Sign In</button>
+              <!-- <p class="forgot"><a href="">Forgot Password?</a></p> -->
+            </form>
+          </div>
+          <div class="nomember">
+            <p class="text-center">Have an account? <a routerLink="/login">Login</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

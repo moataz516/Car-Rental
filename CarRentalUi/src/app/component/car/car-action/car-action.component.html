@@ -1,0 +1,235 @@
+<div class="container mt-5">
+    
+    <form [formGroup]="carForm" (ngSubmit)="onSubmit() ">
+
+
+        <!-- <div class="row">
+          <div class="col-md-12">
+            <h1>
+              Car Information
+            </h1>
+            <hr>
+          </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="brandId" class="form-label">Brand</label>
+                    <select formControlName="brandId" id="carBrands" class="form-control p-3">
+                        <option value="{{i.carBrands}}" *ngFor="let i of carBrands">{{i.name}}</option>
+                    </select>
+                    <div *ngIf="carForm.get('brandId').invalid && carForm.get('brandId').touched" class="text-danger">
+                      Model is required.
+                    </div>
+                  </div>
+            </div>
+                        
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="model"  class="form-label">Car Model:</label>
+                <input type="text" id="model" class="form-control p-3" formControlName="model">
+                <div *ngIf="carForm.get('model').invalid && carForm.get('model').touched" class="text-danger">
+                  Plate Number is required.
+                </div>
+              </div>
+          </div>
+            
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label for="plate_number"  class="form-label">Plate Number:</label>
+                  <input type="text" id="plate_number" class="form-control p-3" formControlName="plate_number">
+                  <div *ngIf="carForm.get('plate_number').invalid && carForm.get('plate_number').touched" class="text-danger">
+                    Plate Number is required.
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label for="color"  class="form-label">Color:</label>
+                  <input type="text" id="color" class="form-control p-3" formControlName="color">
+                  <div *ngIf="carForm.get('color').invalid && carForm.get('color').touched" class="text-danger">
+                    Color is required.
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label for="description">Description:</label>
+                  <textarea id="description" class="form-control p-3" formControlName="description"></textarea>
+                  <div *ngIf="carForm.get('description').invalid && carForm.get('description').touched" class="text-danger">
+                    Description is required.
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label for="price"  class="form-label">Price:</label>
+                  <input type="text" id="price" class="form-control p-3" formControlName="price">
+                  <div *ngIf="carForm.get('price').invalid && carForm.get('price').touched" class="text-danger">
+                    Price is required and must be a number.
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="available"  class="form-label">Availability:</label>
+                    <select id="available" class="form-control p-3" formControlName="available">
+                      <option selected [value]="true">Available</option>
+                      <option [value]="false">Unavailable</option>
+                    </select>
+                    <div *ngIf="carForm.get('available').invalid && carForm.get('available').touched" class="text-danger">
+                      Availability is required.
+                    </div>
+                </div>                
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="image"  class="form-label">Car Image :</label>
+                    <input type="file" id="image" class="form-control p-3" (change)="onImageSelect($event)">
+                </div>                
+            </div>
+
+            <div class="col-md-6" >
+              <div class="form-group img-size"  >
+                    <img [src]="isEdit ? carEdit.image == null ? '' : 'data:image/jpeg;base64,' + carEdit.image : selectedImage == null ? 'https://ih1.redbubble.net/image.4803693521.3354/ur,mouse_pad_small_flatlay_prop,square,1000x1000.jpg' : selectedImage " alt="Selected Car Image" class="img-thumbnail w-100 h-100">
+                </div>                
+            </div> 
+
+            <div class="col-md-12">
+              <h1></h1>
+            </div>
+
+            <div class="col-md-6 offset-3 mt-4">
+                <button type="submit" class="btn btn-success form-control" [disabled]="!carForm.valid">{{isEdit ? 'Update Car' : 'Add a New Car'}}</button>
+            </div>
+        </div> -->
+
+        <div class="row">
+          <div class="col-md-6 offset-3">
+            <div class="row">
+
+              <div class="col-md-12">
+                <h1>Car Information</h1>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="brandId" class="form-label">Brand Name</label>
+                    <select name="brandId" formControlName="brandId" class="form-select">
+                      <option [value]="i.brandId" *ngFor="let i of carBrands">{{i.name}}</option>
+                    </select>
+                  </div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="vehicleTypeId" class="form-label">Vehicle Type</label>
+                    <select name="vehicleTypeId" formControlName="vehicleTypeId" class="form-select">
+                      <option [value]="i.vehicleTypeId" *ngFor="let i of carVehicle">{{i.typeName}}</option>
+                    </select>
+                  </div>
+              </div>
+              
+              <div class="col-md-6 mt-4">
+                <div class="form-group">
+                  <label for="model" class="form-label">Model</label>
+                    <input type="text" id="model" class="form-control" formControlName="model">
+                  </div>
+              </div>
+
+              <div class="col-md-6 mt-4">
+                <div class="form-group">
+                  <label for="year" class="form-label">Year</label>
+                    <input type="text" id="year" class="form-control" formControlName="year">
+                  </div>
+              </div>
+
+              <div class="col-md-6 mt-4">
+                <div class="form-group">
+                  <label for="price" class="form-label">Price</label>
+                    <input type="number" id="price" class="form-control" formControlName="price">
+                  </div>
+              </div>
+              
+              <div class="col-md-6 mt-4">
+                <div class="form-group">
+                  <label for="plateNumber" class="form-label">plate Number</label>
+                    <input type="text" id="plateNumber" class="form-control" formControlName="plateNumber">
+                  </div>
+              </div>
+
+              <div class="col-md-6 mt-4">
+                <div class="form-group">
+                  <label for="color" class="form-label">Color</label>
+                    <input type="text" id="color" class="form-control" formControlName="color">
+                  </div>
+              </div>
+
+              <div class="col-md-12 mt-4">
+                <div class="form-group">
+                  <label for="description" class="form-label">Description</label>
+                  <textarea class="form-control" name="description" id="" cols="30" rows="5" formControlName="description"></textarea>
+                  </div>
+              </div>
+
+              <div class="col-md-6 mt-4">
+                <div class="form-group">
+                  <label for="currentLocation" class="form-label">Current Location</label>
+                  <select name="currentLocation" formControlName="currentLocation" class="form-select">
+                    <option [value]="i" *ngFor="let i of location">{{i}}</option>
+                  </select>                  
+                </div>
+              </div>
+
+              
+              <div class="col-md-6 mt-4">
+                <div class="form-group">
+                  <label for="brandId" class="form-label">Availability</label>
+                    <select name="availability" formControlName="availability" class="form-select">
+                      <option  [ngValue]="true">true</option>
+                      <option [ngValue]="false">false</option>
+                    </select>
+                  </div>
+              </div>
+
+
+              <div class="col-md-12 mt-5">
+                <h1>Car Image</h1>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="image" class="form-label">Image</label>
+                  <input type="file" id="image" class="form-control" (change)="onImageSelect($event)">
+                </div>
+              </div>
+
+              <!-- <div class="col-md-6" >
+                <div class="form-group" style="width:200px;height: 150px;"  >
+                      <img [src]="isEdit ? carEdit.image == null ? '' : 'data:image/jpeg;base64,' + carEdit.image : selectedImage == null ? 'https://ih1.redbubble.net/image.4803693521.3354/ur,mouse_pad_small_flatlay_prop,square,1000x1000.jpg' : selectedImage " alt="Selected Car Image" class="img-thumbnail w-100 h-100">
+                  </div>                
+              </div>  -->
+
+              
+              <div class="col-md-12 mt-5">
+                <h1>Features</h1>
+              </div>
+              <div class="col-md-12">
+                  <ul class="row nav">
+                    <li class="col-md-3 nav-item mt-3" *ngFor="let i of carFeatures">
+                      <input type="checkbox" [checked]="i.isSelected" id="{{i.featureName}}" value="{{i.featureName}}" (change)="onFeatureCheckboxChange(i, $event)" class="form-group me-2">
+                      <label [for]="i.featureName">{{i.featureName}}</label>
+                    </li>
+                  </ul>
+              </div>
+              <div class="col-md-6 offset-3 mt-5">
+                <button type="submit" class="btn btn-success form-control" >{{isEdit ? 'Update Car' : 'Add a New Car'}}</button>
+            </div>
+
+            </div>
+          </div>
+        </div>
+
+      </form>
+
+
+</div>
+

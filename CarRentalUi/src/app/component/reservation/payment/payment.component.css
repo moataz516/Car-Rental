@@ -1,0 +1,208 @@
+/* ::ng-deep .ngx-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+
+
+::ng-deep .ngx-pagination li {
+    width: 35px;
+    height:35px;
+    border-radius: 50% !important;
+    background: #f8f8f8;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &.small-screen{
+        display:none !important;
+    }
+
+
+    &.pagination-previous,
+    &.pagination-next{
+        a,span{
+            width:100%;
+            height:100%;
+            border-radius: 50%;
+            overflow: hidden;
+            color: #f8f8f8
+        }
+    }
+    .ngx-pagination .pagination-previous a:before,
+    .ngx-pagination .pagination-previous.disabled:before,
+    .ngx-pagination .pagination-next::before{
+        margin-right: 0px !important;
+        font-size: 26px;
+        margin-top:-8px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+     }
+     .ngx-pagination .pagination-next a::before{
+        content: "";
+     }
+     .ngx-pagination .pagination-next::after{
+        display: none !important;
+     }
+     .ngx-pagination .pagination-previous :disabled:before{
+        opacity: 0.4;
+     }
+
+     .ngx-pagination .pagination-previous :disabled:hover{
+        background-color: #f8f8f8 !important;
+     }
+
+     .ngx-pagination a:hover, .ngx-pagination button:hover{
+        background-color: initial !important;
+     }
+    }
+} */
+
+
+
+/* 
+.custom-box{
+    background-color: #2E4D65;
+    padding:20px 15px; 
+    height:60px;
+    border-radius: 5px;
+    align-items: center;
+} */
+
+
+
+
+/* li.list-group-item{
+    background-color: #2E4D65;
+    display: flex;
+    justify-content: space-between;
+    color:#e0d8d8
+} 
+
+.car-box{
+    min-height: 400px;
+    background-color: #415C71 !important;
+    margin-bottom: 50px;
+    border-radius: 6px;
+    padding: 20px
+}
+
+.bg-1{
+    background: #415C71;
+    color:white;
+}
+
+.btn-box{
+    width: 140px;
+    height:40px;
+    background-color:#017CC9;
+    border-radius: 0;
+    border:none;
+    color:white;
+}
+
+.btn-box:hover{
+    background-color:#0b6eacb9;
+    transition-duration: 0.3s;
+    transition-property: transform, background-color;
+}
+
+.btn-box:after,  .btn-box:active{
+    color:white;
+}
+
+.img-box{
+    width:100%;
+    height:150px;
+    padding: 5px;
+    border: 1px solid #fffefe3d;
+}
+
+.desc-box{
+    padding : 5px;
+    font-size:16px;
+
+
+}
+
+.desc-box p{
+    color:#EFFAFC;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.vt-item{
+    color:white;
+    font-size:16px;
+}
+
+.check-icon::before{
+    content: "\f26e";
+}
+
+.f-item{
+    color:white;
+    font-size:18px;   
+    margin-left: 5px;
+    color: #9AAEB9;
+} */
+
+
+form input{
+    padding:10px 20px
+}
+
+.booking-details,.res-box,.payment-process{
+    padding:30px 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    border: none;
+    height: auto;
+}
+
+.detail{
+    font-size:20px;
+    padding-right: 10px;
+}
+
+.detail div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.image-box{
+    width: 100%;
+    height:200px;
+}
+
+.vehicle-item .icon {
+    font-size: 22px;
+    color: #00000098;
+    padding-right: 5px;
+}
+.vehicle-item span{
+    font-size: 16px;
+}
+
+.feature-item .icon{
+    color:green;
+    font-size: 18px;
+    padding-right: 5px;
+}
+
+.car-price-box button{
+    background-color: #0059ffde;
+    border-radius: 0;
+}
+
+.isinvalid{
+    border: 1px solid red;
+}

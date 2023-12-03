@@ -1,0 +1,262 @@
+ <!-- <ul>
+    <li *ngFor="let item of availableCars | paginate: { itemsPerPage: itemPerPage, currentPage: p }"> {{item.model}} </li>
+  </ul>
+             
+  <pagination-controls class="d-flex justify-content-center"  (pageChange)="p = $event"></pagination-controls> 
+
+ -->
+<!-- 
+ <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12  mb-4">
+            <p class="alert border-0  py-4 text-white" style="background-color: #172734c7; font-size:17px"> STEP 2: Browse available vehicles and choose the one that meets your needs. 
+            </p>
+        </div>
+        <div class="col-xl-4 col-lg-5">
+
+            <div class="card pb-3 bg-1">
+                <div class="card-header"  >
+                    <h1 class="pt-2">BOOKING DETAILS
+                    </h1>
+                </div>
+                    <ul class="list-group list-group-flush "  >
+                        <li class="list-group-item" >
+                            <h2 >Pick-up:  </h2>
+                            <h2> {{timeAndPlaceDetails.startDate}}<br> {{timeAndPlaceDetails.location}}</h2>
+                        </li>
+                        <li class="list-group-item">
+                            <h2>Return:   </h2>
+                            <h2>{{timeAndPlaceDetails.endDate}} </h2>
+                        </li>
+                        <li class="list-group-item">
+                            <h2>Rental Duration:   </h2>
+                            <h2>{{DurationInDays(timeAndPlaceDetails.startDate,timeAndPlaceDetails.endDate)}}</h2>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+        <div class="col-xl-8 col-lg-7 " >
+            <div class="row">
+                <div class="col-md-12 car-box"*ngFor="let item of availableCars">
+                    <div class="card" style="background-color: #415C71; border:none" >
+                        <div class="card-header mb-4 d-flex justify-content-between align-items-start">
+                            <h2 class="text-white text-uppercase">{{ item.vehicleType.typeName }} : {{item.vehicleType.vehicleClass}}</h2>
+                            <button class="btn btn-box" (click)="addCar(item)" >Book Now</button>
+                        </div>
+                        <div class="row d-flex align-items-center" >
+                            <div class="m-container d-flex align-items-start pb-5 pt-2">
+                                <div class="col-md-3 pe-3">
+                                    <div class="img-box">
+                                        <img [src]="'data:image/jpeg;base64,' + item.image" alt="car" class="w-100 h-100" >
+                                    </div>
+                                </div>
+                                <div class="col-md-6 px-4">
+                                    <div class="desc-box">
+                                        <p class="" >{{item.description}}</p>
+                                    </div>
+    
+                                </div>
+                                <div class="col-md-3 ps-3">
+                                    <p style="color: #9AAEB9; font-size:16px">
+                                        Rental price:
+                                    </p>
+                                    <h1 class="text-white fs-2" >{{TotalPrice(item.price) | currency}}</h1>
+                                </div>  
+                            </div>
+                              
+                            <hr>
+                            <div class="col-md-3">
+                                    <span class="ms-3 " >
+                                        <i class="fa-solid fa-user" style="color: #f2f2f2;"></i> <span class="vt-item"> {{item.vehicleType.capacity}}</span>
+                                    </span>
+                                    <span class="ms-3 " >
+                                        <i class="fa-solid fa-briefcase" style="color: #f2f2f2;"></i> <span class="vt-item"> 2 </span>
+                                    </span>
+                                    <span class="ms-3" >
+                                        <i class="fa-solid fa-door-closed" style="color: #f2f2f2;"></i> <span class="vt-item"> {{item.vehicleType.capacity}} </span>
+                                    </span>
+                                    <span class="ms-3 " >
+                                        <i class="fa-solid fa-gear" style="color: #f2f2f2;"></i> <span class="vt-item"> {{item.vehicleType.transmissionType.charAt(0)}} </span>
+                                    </span>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="feature"  >
+                                    <span class="ms-4"  *ngFor="let feature of item.features">
+                                        <i class="fa-solid fa-check fa-sm" style="color: #f2f2f2;"></i>       
+                                        <span class="f-item">{{feature.featureName}}</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+            </div>
+        </div>
+    </div>
+ </div> -->
+
+
+
+ <div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 ">
+            <div class="booking-details">
+                    <h1 class="fs-4 fw-normal ">Quick Search</h1>
+                    <hr class="pb-3">
+                    <div class=" detail">
+                        <div>
+                            <span>Location:</span> 
+                            <span> {{timeAndPlaceDetails.location}}</span>
+                        </div>
+                        <div>
+                            <span>Start Date:</span>
+                            <span> {{timeAndPlaceDetails.startDate}}</span>    
+                        </div>
+                        <div>
+                            <span>End Date:</span>
+                            <span> {{timeAndPlaceDetails.endDate}}</span>    
+                        </div>
+                        <div>
+                            <span>Duration:</span>
+                            <span> {{DurationInDays(timeAndPlaceDetails.startDate,timeAndPlaceDetails.endDate)}}</span>    
+                        </div>
+                    </div>
+            </div>
+        </div> 
+
+
+
+
+        <!-- <div class="col-md-4">
+            <div id="filter-name" class="filter">
+                <h2>Filter by Vehicle Type</h2>
+                <label *ngFor="let i of  uniqueType" class="d-block">
+                    <input type="checkbox" class="vehicle-filter" (change)="onCheckboxChange(i, $event,'typeName')">
+                    {{i}}
+                    <span class="count"></span>
+                </label>
+            </div>
+
+            <div id="filter-transmission" class="filter">
+                <h2>Filter by Transmission</h2>
+                <label *ngFor="let i of uniqueTransmission" class="d-block">
+                    <input type="checkbox" class="vehicle-filter" value="{{i}}" (change)="onCheckboxChange(i, $event,'transmissionType')" >
+                    {{i}}
+                    <span class="count"></span>
+                </label>
+            </div>
+
+
+            <div id="filter-brand" class="filter">
+                <h2>Filter by Brand</h2>
+                <label *ngFor="let i of a" class="d-block">
+                    <input type="checkbox" class="vehicle-filter" value="{{i}}" (change)="onCheckboxChange(i, $event,'transmissionType')" >
+                    {{i}}
+                    <span class="count"></span>
+                </label>
+            </div>
+
+
+        </div> -->
+        <div class="col-md-8" >
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <div class="d-flex ">
+                        <div class="select-control">
+                            <select [(ngModel)]="brandFilter" class="form-select">
+                                <option  value="" >Filter By Brand</option>
+                                <option [value]="i.name" *ngFor="let i of brands"> {{i.name}} </option>
+                            </select>
+                        </div>
+
+                        <div class="select-control ms-3">
+                            <select name="price" class="form-select" (change)="FilterByPrice($event)">
+                                <option  value="" selected >Filter By Price</option>
+                                <option value="l">Low to High</option>
+                                <option value="h">High to Low</option>
+                            </select>
+                        </div>
+
+                        <div class="select-control ms-auto">
+                            <select name="sort" id="sort"  (change)="sortCar($event)" class="form-select">
+                                <option value="">Sort By</option>
+                                <option value="a"> a-z </option>
+                                <option value="z"> z-a </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1 class="fs-2">Search Results</h1>
+
+                <div class="row res-box mb-5 px-0" *ngFor="let item of  availableCars | CarFilter:brandFilter">
+                    <div class="col-md-4 ">
+                        <div class="image-box">
+                            <img [src]="'data:image/jpeg;base64,' + item.image" alt="car" width="100%" height="100%" alt="{{item.model}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="car-details-box px-3 ">
+                            <div class="car-info mb-4">
+                                <h1 class="mb-0">{{item.brand.name}} : {{item.vehicleType.vehicleClass}}</h1>
+                                <span class="text-black-50"> {{item.year}} </span>
+                            </div>
+                            <div class="vehicle-type mb-4">
+                                <ul class="list-inline d-flex justify-content-around">
+                                    <li class="vehicle-item"> 
+                                        <i class="fa-solid fa-user icon"></i> 
+                                        <span >{{item.vehicleType.capacity}}</span>    
+                                    </li>
+                                    <li class="vehicle-item"> 
+                                        <i class="fa-solid fa-door-closed icon"></i> 
+                                        <span >{{item.vehicleType.capacity}}</span>    
+                                    </li>                                    
+                                    <li class="vehicle-item"> 
+                                        <i class="fa-solid fa-briefcase icon"></i> 
+                                        <span >2</span>    
+                                    </li>
+                                    <li class="vehicle-item"> 
+                                        <i class="fa-solid fa-gear icon"></i> 
+                                        <span >{{item.vehicleType.transmissionType[0]}}</span>    
+                                    </li>
+                                    <li class="vehicle-item"> 
+                                        <i class="fa-solid fa-gauge-high icon"></i>
+                                        <span >{{item.vehicleType.mileage}}</span>    
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="car-features">
+                                <p class="text-black-50" style="font-size: 16px;">This offer includes</p>
+                                <ul class="list-inline d-flex justify-content-around">
+                                    <li class="feature-item" *ngFor="let feature of item.features"> 
+                                        <i class="fa-solid fa-check icon"></i>
+                                        <span>{{feature.featureName}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" style="border-left: 1px solid #00000077;">
+                        <div class="car-price-box py-5">
+                            <div class="price ps-3">
+                                <h1 class="fs-2 mb-0">{{item.price.toFixed(2)}}</h1>
+                                <span class="fs-5 text-black-50">per day</span>
+                            </div>
+                            <button class="btn btn-success mt-5 w-100" (click)="rentCar(item)">
+                                Rent Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+
+ 

@@ -1,0 +1,17 @@
+
+
+<div class="card" style="width:100%;height:auto">
+    <img [src]="'data:image/jpeg;base64,' + carItem.image" class="card-img-top" alt="Car Image" style="width:100%;height:350px">
+    <div class="card-body">
+      <h5 class="card-title">{{carItem.model}}</h5>
+      <p class="card-text">{{carItem.description}}</p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Color: {{carItem.color}}</li>
+        <li class="list-group-item">Price: ${{carItem.price}}</li>
+        <li class="list-group-item">
+            <button class="btn btn-info" [routerLink]="['/car-details' , carItem.carId]">Show Car</button>
+        </li>
+        
+      </ul>
+    </div>
+  </div>

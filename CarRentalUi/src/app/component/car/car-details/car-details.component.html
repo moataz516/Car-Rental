@@ -1,0 +1,164 @@
+<!-- 
+
+<div class="container">
+    <div class="car-box" >
+
+        <div class="car-container my-4 d-flex">
+            <div class="img-container" style="width:400px; height:250px">
+                <img class="card-img-top w-100 h-100" [src]="'data:image/jpeg;base64,' + carInfo.image" alt="">
+            </div>
+            <div class="details-container px-5">
+                <h4>model: {{carInfo.model}}</h4>
+                <p>price: {{carInfo.price}}</p>
+                <button class="btn btn-info px-4 mt-5" [routerLink]="['/add-car', carInfo.carId]" *ngIf="isAuthorized()" >Update</button>
+                
+                <div  *ngIf="!isAuthorized()">
+                    <br> <hr> <br>
+                    
+                <h2 class="alert alert-danger text-center" *ngIf="displayErrorMessage">
+                    Please, Fill out All Information to make the process
+                </h2>
+                <form [formGroup]="myForm" (ngSubmit)="CheckCarAvailable()">
+                    <input type="hidden" formControlName="carId">
+                    <div class="row">
+                        <div class="col-md-3  col-sm-12">
+                            <div class="form-group">
+                                <label for="startLocation"  class="form-label">Picking Up Location</label>
+                                <select formControlName="startLocation" id="startLocation" class="form-control p-3" formControlName="startLocation">
+                                    <option value="i" *ngFor="let i of locations">{{i}}</option>
+                                </select>                    
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12">
+                            <div class="form-group" >
+                                <label for="fromDate"  class="form-label">Picking Up Date</label>
+                                <input type="date" class="form-control p-3" id="fromDate" formControlName="fromDate" />
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12">
+                            <div class="form-group">
+                                <label for="toDate"  class="form-label">Returning Date</label>
+                                <input type="date" class="form-control p-3" formControlName="toDate" />
+                            </div>
+                        </div>
+        
+                        <div class="col-md-6 mt-4">
+                                <button type="submit" class="btn btn-success w-100 p-3" >Rent Now</button>
+                        </div>
+                    </div>
+                </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div> -->
+<section class="mt-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="img-container">
+                    <img class="card-img-top w-100 h-100" [src]="'data:image/jpeg;base64,' + carInfo.image" alt="">
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="horizon-line">
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="car-title d-inline-block my-4">
+                    <span>{{carInfo.brand.name}} {{carInfo.model}} - </span>
+                    <span> {{carInfo.vehicleType.vehicleClass}}</span>
+
+                </div>
+
+                <div class="car-features my-4">
+                    <p class="fs-3 mb-4">Car Features</p>
+                    <div class="d-flex flex-wrap align-items-center">
+                        <div class="mx-3 feature-item" *ngFor="let item of carInfo.features">
+                            <i class="fa-solid fa-check fa-lg" style="color: #003700;"></i>
+                            <div class="ms-2">{{item.featureName}}</div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="car-description my-4">
+                    <p class="text-wrap text-center fs-6">
+                        {{carInfo.description}}
+                    </p>
+                </div>
+                <hr>
+
+                <div class="car-extra-info my-4">
+                    <p class="fs-3 mb-4">Car Information</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="car-color">
+                            <p class="fs-5"> color: <span class="color-circle"
+                                    [style.background]="carInfo.color"></span></p>
+                        </div>
+                        <div class="car-info">
+                            <div class="vehicle-type">
+                                <ul class="list-inline d-flex ">
+                                    <li class="vehicle-item">
+                                        <i class="fa-solid fa-user icon"></i>
+                                        <span>{{carInfo.vehicleType.capacity}}</span>
+                                    </li>
+                                    <li class="vehicle-item">
+                                        <i class="fa-solid fa-door-closed icon"></i>
+                                        <span>{{carInfo.vehicleType.capacity}}</span>
+                                    </li>
+                                    <li class="vehicle-item">
+                                        <i class="fa-solid fa-briefcase icon"></i>
+                                        <span>2</span>
+                                    </li>
+                                    <li class="vehicle-item">
+                                        <i class="fa-solid fa-gear icon"></i>
+                                        <span>{{carInfo.vehicleType.transmissionType[0]}}</span>
+                                    </li>
+                                    <li class="vehicle-item">
+                                        <i class="fa-solid fa-gauge-high icon"></i>
+                                        <span>{{carInfo.vehicleType.mileage}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="car-search" *ngIf="!isAdminOrOwner()">
+                    <form [formGroup]="myForm" (ngSubmit)=" CheckCarAvailable()" >
+                        <div class="row">
+                            <div class="col-md-4 col-sm-12">
+                                <div class="form-group">
+                                    <select formControlName="location" id="location" class="form-control p-3"  [class.isNotValid]="myForm.get('location').hasError('required') && myForm.get('location').touched">
+                                        <option value="" disabled > Your destination</option>
+                                        <option [value]="i" *ngFor="let i of locations">{{i}}</option>
+                                    </select>                   
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                <div class="form-group" >
+                                    <input type="date" class="form-control p-3" id="startDate" formControlName="startDate"  [class.isNotValid]="myForm.get('startDate').invalid && (myForm.get('startDate').dirty || myForm.get('startDate').touched)" />
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                <div class="form-group">
+                                    <input type="date" class="form-control p-3"  id="endDate" formControlName="endDate" [class.isNotValid]="myForm.get('endDate').invalid && (myForm.get('endDate').dirty || myForm.get('endDate').touched)" />
+                                </div>
+                            </div>
+            
+                            <div class="col-md-4 mt-4">
+                                    <button type="submit" class="btn  w-100 p-3"  style="background-color: #b45113; color: white; border: none;" [disabled]="myForm.invalid" >{{ carInfo.price | currency}} Per day</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <button class="btn btn-primary px-4 mt-5" [routerLink]="['/add-car', carInfo.carId]" *ngIf="isAdminOrOwner()" >Update Car</button>
+            </div>
+        </div>
+    </div>
+</section>
+

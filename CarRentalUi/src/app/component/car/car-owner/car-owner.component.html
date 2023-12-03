@@ -1,0 +1,108 @@
+<!-- Car Table -->
+<div class="container mt-5"  style="min-height: 80vh;">
+    <div class="d-flex">
+        <button class="ms-auto" mat-raised-button color="primary" routerLink="/add-car">Add New Car</button>
+    </div>
+
+<div class="table-container mat-elevation-z8 mt-3">
+    <table mat-table [dataSource]="carOwner">
+      <ng-container matColumnDef="model">
+        <th mat-header-cell *matHeaderCellDef>Make & Model</th>
+        <td mat-cell *matCellDef="let car">{{car.brand.name}} {{ car.model }} </td>
+      </ng-container>
+  
+
+  
+      <ng-container matColumnDef="vehicleType">
+        <th mat-header-cell *matHeaderCellDef>Car type</th>
+        <td mat-cell *matCellDef="let car">{{ car.vehicleType.typeName }} {{car.vehicleType.vehicleClass}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="plateNumber">
+        <th mat-header-cell *matHeaderCellDef>License Plate</th>
+        <td mat-cell *matCellDef="let car">{{ car.plateNumber }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="location">
+        <th mat-header-cell *matHeaderCellDef>Location</th>
+        <td mat-cell *matCellDef="let car">{{ car.currentLocation }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let car">{{ car.price }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="availability">
+        <th mat-header-cell *matHeaderCellDef>Availability</th>
+        <td color="primary" mat-cell *matCellDef="let car">
+          <p class=" d-inline px-3 py-2 badge {{car.availability ? 'bg-success' : 'bg-danger '}} " style="font-size:14px;font-weight:500">{{ car.availability ? 'Active' : 'Inactive' }}</p>
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let car">
+          <button mat-icon-button [routerLink]="['/add-car', car.carId]" color="primary">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteCar(car)" color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button [routerLink]="['/car-details',car.carId]" color="primary">
+            <mat-icon>info</mat-icon>
+          </button>
+          <button mat-icon-button (click)="changeAvailability(car.carId)" color="primary">
+            <mat-icon>autorenew</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>
+
+
+
+
+  
+  <!-- Car Details Form -->
+  <!-- <div *ngIf="isCreating || isEditing" class="form-container mat-elevation-z8">
+    <h2>{{ isCreating ? 'Create New Car' : 'Edit Car' }}</h2>
+    <form [formGroup]="carForm" (ngSubmit)="saveCar()">
+      <mat-form-field appearance="fill">
+        <mat-label>Model</mat-label>
+        <input matInput formControlName="model">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Year</mat-label>
+        <input matInput formControlName="year">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Plate Number</mat-label>
+        <input matInput formControlName="plateNumber">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Color</mat-label>
+        <input matInput formControlName="color">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <input matInput formControlName="price">
+      </mat-form-field>
+  
+      <mat-checkbox formControlName="availability">Available</mat-checkbox>
+  
+  
+      <div class="actions">
+        <button mat-button type="button" (click)="cancel()">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">{{ isCreating ? 'Create' : 'Save' }}</button>
+      </div>
+    </form>
+  </div> -->

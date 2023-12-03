@@ -1,0 +1,67 @@
+<!-- <mat-toolbar>
+
+  
+  </mat-toolbar>
+
+
+  <span class="example-spacer"></span>
+  <p *ngIf="isAuthenticated()" class="me-3">{{UserName()}}</p>
+    <button *ngIf="!isAuthenticated()" mat-flat-button extended routerLink="/login">Lgoin</button>
+    <button *ngIf="isAuthenticated()" mat-flat-button extended (click)="LogoutUser()">Logout</button> -->
+
+      <nav class="nav-menu"> 
+        <a class="nav-link logo" routerLink="/" style="cursor: pointer;">Rental Car</a>
+        <ul>
+          <li><a class="nav-link ms-3" routerLink="/car-owner" style="cursor: pointer;" *ngIf="isOwnerAuthorized()" >Vehicles </a></li>
+          <li><a class="nav-link ms-3" routerLink="/car-rented" style="cursor: pointer;" *ngIf="isOwnerAuthorized()" >Booking </a></li>
+          <li><a class="nav-link ms-3" routerLink="/car-returned" style="cursor: pointer;" *ngIf="isOwnerAuthorized()" >Car-Returned </a></li>
+
+          <li><a class="nav-link ms-3" routerLink="/userBooking" style="cursor: pointer;" *ngIf="!isOwnerAuthorized() && isAuthorized()" >My Reservation </a></li>
+
+        </ul>
+        <button *ngIf="!isAuthenticated()" class="login-btn" mat-flat-button extended routerLink="/login">Login</button>
+<!-- 
+        <img *ngIf="isAuthenticated()" src="https://cdn-icons-png.flaticon.com/128/552/552721.png" class="user-pic" alt="" (click)="toggleMenu()" >
+
+        <div class="sub-menu-wrap" id="subMenu" (click)="toggleMenu()">
+          <div class="sub-menu">
+            <div class="user-info">
+              <img src="https://cdn-icons-png.flaticon.com/128/552/552721.png" alt="">
+              <h3>{{UserName()}}</h3>
+            </div>
+            <hr>
+            <a href="" class="sub-menu-link" [routerLink]="['/profile',getUserId() ]" (click)="toggleSubMenu()">
+              <i class="fa-solid fa-user"></i>
+              <p>Edit Profile</p> 
+              <span>></span>
+            </a>
+            <a class="sub-menu-link " (click)="LogoutUser()" (click)="toggleSubMenu()"> 
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <p>Logout</p> <span>></span>
+            </a>
+          </div>
+        </div> -->
+
+        <button mat-icon-button [matMenuTriggerFor]="beforeMenu" aria-label="Example icon-button with a menu"  *ngIf="isAuthenticated()">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #beforeMenu="matMenu" xPosition="before" class="p-4 bg-white">
+          <a href="" class="sub-menu-link" [routerLink]="['/profile',getUserId() ]" (click)="toggleSubMenu()">
+            <i class="fa-solid fa-user"></i>
+            <p>Edit Profile</p> 
+            <span>></span>
+          </a>
+          <a class="sub-menu-link " (click)="LogoutUser()" (click)="toggleSubMenu()"> 
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <p>Logout</p> <span>></span>
+          </a>
+
+        </mat-menu>
+
+
+      </nav>
+
+
+
+
+  

@@ -1,0 +1,98 @@
+<!--<div class="text-center">
+    <h1 class="fs-1">Select By Vehicle Type</h1>
+</div>
+ <div class="d-flex justify-content-center mt-5" >
+    <div class="vehicle-item ms-3">
+        <img src="https://hips.hearstapps.com/hmg-prod/images/2023-bmw-3-series-112-1652798463.jpg?crop=0.721xw:0.541xh;0.136xw,0.202xh&resize=980:*"   (click)="SelectByVehicleType('sedan')" width="100%" height="100%" >
+    </div>
+    <div class="vehicle-item ms-3">
+        <img src="https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/ExtraImages/20210420055452_4210419_01eng.jpg&w=700&q=90&c=1"   (click)="SelectByVehicleType('suv')" width="100%" height="100%"  >
+    </div>
+    <div class="vehicle-item ms-3">
+        <img src="https://lemonbin.com/wp-content/uploads/2022/02/fiat-500.jpg" width="100%" height="100%"   (click)="SelectByVehicleType('motorcycle')">
+    </div>
+    <div class="vehicle-item ms-3">
+        <img src="https://global.yamaha-motor.com/business/mc/lineup/yzf-r/img/sec00_01_yzf-r1.jpg" width="100%" height="100%"  (click)="SelectByVehicleType('motorcycle')" >
+    </div>
+</div> -->
+
+
+<div class="car-vehicle">
+    <div class=" container">
+        <h1 class="fs-1  text-center">Select By Vehicle Type</h1>
+        <hr class="hr-line">
+        <div class="d-flex justify-content-center mt-5">
+            <button type="button" class="c btn  mx-2 rounded-0" (click)="ch('All')"  [ngClass]="{highlighted:nameFilter == 'All'}">All</button>
+            <button type="button" class="c btn mx-2 rounded-0" (click)="ch(vehicle)" *ngFor="let vehicle of vehicleList" [ngClass]="{highlighted:vehicle.typeName == nameFilter}">
+                {{vehicle.typeName}}
+            </button>
+        </div>
+        
+        <!-- <div class="vehicle-filtered-box">
+            <div class="row">
+                <div class="col-md-3 p-3 " *ngFor="let i of carList | vehicleFilter : nameFilter ">
+                            <img [src]="'data:image/jpeg;base64,'+ i.image" class=""  width="100%" height="100%">
+                                Model{{i.model}} 
+                            <button class="btn btn-secondary me-3" [routerLink]="['car-details',i.carId]">Show Info</button>
+                             <button class="btn p-3 btn-dialog" mat-button (click)="openDialog(i)" >Rent Car</button> 
+
+                </div>
+            </div>
+        </div> -->
+
+
+
+        
+           <div class="mt-4">
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="sliderConfig">
+                <ng-container *ngIf="(carList | vehicleFilter : nameFilter)?.Length === 0">
+                    <h1>No matching vehicles found.</h1>
+                  </ng-container>
+                <div ngxSlickItem *ngFor="let i of carList  | vehicleFilter : nameFilter" class="slide aa">
+                    <div class="vehicle-img">
+                        <img [src]="'data:image/jpeg;base64,'+ i.image" class=""  width="100%" height="100%">
+                    </div>
+                    <div class="d-flex justify-content-between mt-3">
+                        <p class="fs-5">{{i.model}}</p> 
+                        <p>{{i.price | currency}}</p>
+                    </div>
+                        <button class="btn px-4 custom-btn"  [routerLink]="['car-details',i.carId]">Show Info</button>
+                </div>
+
+            </ngx-slick-carousel>
+           </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+<!-- 
+
+        <div class="vehicle-filtered-box">
+            <div class="row">
+                <div class="col-md-3 p-3 " *ngFor="let i of carList | vehicleFilter : nameFilter ">
+                    <div class="card">
+                        <div class="card-img-top">
+                            <img [src]="'data:image/jpeg;base64,'+ i.image" class=""  width="100%" height="100%">
+                        </div>
+                        <div class="card-body ">
+                            <div class="card-title">
+                                Model{{i.model}} 
+                            </div>
+                            <div class="card-text">
+                                {{i.description}}
+                            </div>
+                            <button class="btn btn-secondary me-3" [routerLink]="['car-details',i.carId]">Show Info</button>
+                            button class="btn p-3 btn-dialog" mat-button (click)="openDialog(i)" >Rent Car</button> 
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+ -->

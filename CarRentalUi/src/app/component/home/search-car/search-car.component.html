@@ -1,0 +1,83 @@
+
+
+
+
+
+
+
+        <!-- <form [formGroup]="myForm" (ngSubmit)="ShowAvailableCars()">
+            <div class="row">
+
+                 <div class="col-md-3 col-sm-12">
+                    <div class="form-group" >
+                        <label for="brandId" class="form-label">Vehicle Type</label>
+                        <select formControlName="brandId" class="form-control p-3">
+                            <option selected  value="">All Brands</option>
+                            <option [value]="i.brandId" *ngFor="let i of carBrands">{{i.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3  col-sm-12">
+                    <div class="form-group" >
+                        <label for="location"  class="form-label">Picking Up Location <span class="text-danger">*</span> </label>
+                        <select formControlName="location" id="location" class="form-control p-3"  [ngClass]="{ 'error-border': myForm.get('location').invalid && myForm.get('location').touched }">
+                            <option value="" selected>Location</option>
+                            <option [value]="i" *ngFor="let i of locations">{{i}}</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                        <label for="startDate" class="form-label">Picking Up Date<span class="text-danger">*</span></label>
+                        <input type="date" class="form-control p-3" id="startDate" formControlName="startDate"   [ngClass]="{ 'error-border': myForm.get('startDate').invalid && myForm.get('startDate').touched }" />
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                        <label for="endDate"  class="form-label">Returning Date<span class="text-danger">*</span></label>
+                        <input type="date" class="form-control p-3" formControlName="endDate"  [ngClass]="{ 'error-border': myForm.get('endDate').invalid && myForm.get('endDate').touched }" />
+                    </div>
+                </div>
+
+                <div class="col-md-12 mt-4">
+                        <button type="submit" class="btn btn-success w-100 p-3"  [disabled]="myForm.invalid">Rent Car</button>
+                </div>
+            </div>
+        </form> -->
+
+
+
+        <form [formGroup]="myForm" (ngSubmit)="ShowAvailableCars()">
+            <div class="row">
+
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group" >
+                        <label for="location"  class="form-label">Picking Up Location <span class="text-danger">*</span> </label>
+                        <select formControlName="location" id="location" class="form-control p-3"  [ngClass]="{ 'error-border': myForm.get('location').invalid && myForm.get('location').touched }">
+                            <option value="" selected>Location</option>
+                            <option [value]="i" *ngFor="let i of locations">{{i}}</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                        <label for="startDate" class="form-label">Picking Up Date<span class="text-danger">*</span></label>
+                        <input type="date" class="form-control p-3" id="startDate" formControlName="startDate"   [ngClass]="{ 'error-border': myForm.get('startDate').invalid && myForm.get('startDate').touched }" />
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                        <label for="endDate"  class="form-label">Returning Date<span class="text-danger">*</span></label>
+                        <input type="date" class="form-control p-3" formControlName="endDate"  [ngClass]="{ 'error-border': myForm.get('endDate').invalid && myForm.get('endDate').touched }" />
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-12 mt-auto">
+                        <button type="submit" class="btn  p-3 w-100" [disabled]="!myForm.valid" >Search Car</button>
+                </div>
+            </div>
+        </form>
+
+

@@ -1,0 +1,47 @@
+
+   <!-- <div class="slider-container">
+    <img src="../../../assets/slidercar.jpg" alt="">
+    <div class="search-box">
+        <div class="container">
+            <app-search-car></app-search-car>
+        </div>
+    </div>
+   </div> -->
+
+
+   <section class="slider" >
+    <div class=" slider-box">
+        <div class="caption-box">
+            <h1 class="caption-title">Looking to save more on your rental car?</h1>
+            <hr class="hr-line">
+            <p class="caption-desc">
+               Discover RentalX car rental options in JORDAN with Rent a Car Relect from a range of car options and local specials 
+            </p>
+        </div>
+        <div class="image-box">
+            <img src="../../../assets/slider.png" alt="" class="img">
+        </div>
+        <div class="search-box" *ngIf="!IsUserPriv()">
+            <app-search-car></app-search-car>
+        </div>
+    </div>
+   </section>
+
+<!-- <div class="my-100" *ngIf="false">
+    <h1 class="text-center">Car Available</h1>
+    <div class="container">
+        <app-car></app-car>
+    </div>
+</div> -->
+
+
+<section class="my-100" *ngIf="!IsUserPriv()">
+    <app-vehicletype></app-vehicletype>
+</section>
+
+
+
+<section class="contactUs" class="my-150">
+    <app-contact-us></app-contact-us>
+</section>
+

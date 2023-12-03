@@ -1,0 +1,106 @@
+
+
+
+<div class="container mt-4 all-page">
+<div class="res-box" >
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card aa">
+                <div class="card-header">
+                    <h2>Your reservation details</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="mb-1 fs-6 ">Reference ID</p>
+                            <span>{{resInfo.reservationId}}</span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <p class="mb-1 fs-6 ">Status</p>
+                            <span class="badge bg-success p-2">{{resInfo.status}}</span>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <p class="mb-1 fs-6 ">Type</p>
+                            <span>{{resInfo.car.vehicleType.typeName+':'+resInfo.car.vehicleType.vehicleClass}}</span>
+                        </div>
+                        <div class="col-md-6  mb-3">
+                            <p class="mb-1 fs-6 ">Start Date</p>
+                            <span>{{formatDate(resInfo.startDate)}}</span>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="mb-1 fs-6 ">End Date</p>
+                            <span>{{formatDate(resInfo.endDate)}}</span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <p class="mb-1 fs-6 ">Pick up location</p>
+                            <span>{{resInfo.startLocation}}</span>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="mb-1 fs-6 ">Return location</p>
+                            <span>{{resInfo.endLocation}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Personal details</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="mb-1 fs-6 ">Reference ID</p>
+                            <span>{{resInfo.reservationId}}</span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <p class="mb-1 fs-6 ">Status</p>
+                            <span class="badge bg-success p-2">{{resInfo.status}}</span>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <p class="mb-1 fs-6 ">Type</p>
+                            <span>{{resInfo.car.vehicleType.typeName+':'+resInfo.car.vehicleType.vehicleClass}}</span>
+                        </div>
+                        <div class="col-md-6  mb-3">
+                            <p class="mb-1 fs-6 ">Start Date</p>
+                            <span>{{formatDate(resInfo.startDate)}}</span>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="mb-1 fs-6 ">End Date</p>
+                            <span>{{formatDate(resInfo.endDate)}}</span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <p class="mb-1 fs-6 ">Pick up location</p>
+                            <span>{{resInfo.startLocation}}</span>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="mb-1 fs-6 ">Return location</p>
+                            <span>{{resInfo.endLocation}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center mt-5">
+        <button class="btn btn-success me-4" routerLink="">Back To Home</button>
+        <button class="btn btn-success me-4"  (click)="generatePDF()">Generate PDF</button>
+
+    </div>
+</div>
+</div>
+
+
+
+
+<!-- <div class="container">
+    <div class="webviewer" #viewer></div>
+</div> -->

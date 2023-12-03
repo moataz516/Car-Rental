@@ -1,0 +1,71 @@
+
+
+<div class="container mt-5">
+    <section class="profile-section">
+        
+        <div class="row">
+            <div class="col-md-4">
+                <div class="basic-section text-center">
+                    
+                    <div class="img-box" (click)="openFileInput()">
+                        <img [src]=" userProfile?.userDetails?.photo 
+                        ? 'data:image/jpeg;base64,' + userProfile.userDetails.photo
+                        : 'https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG.png'
+                        " alt="profile img">
+                        <input type="file" #fileInput style="display: none;" (change)="onFileSelected($event)">
+                    </div>
+                    <hr>
+                    <p class="fs-3">{{userProfile.firstName +' '+ userProfile.lastName}}</p>
+                    <p class="fs-5">{{userProfile.email}}</p>
+                    <div class="btn-box">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 offset-1">
+                <div class="secondary-section">
+                    <h3 class="fs-3 mb-4">User Info</h3>
+                    <div class="user-item">
+                        <p > Full Name  <span>{{userProfile.firstName +' '+ userProfile.lastName}}</span></p>
+                    </div>
+                    <hr>
+                    <div class="user-item">
+                        <p > Email  <span>{{userProfile.email}}</span></p>
+                    </div>
+                    <hr>
+                    <div class="user-item">
+                        <p > Username  <span>{{userProfile.username}}</span></p>
+                    </div>
+
+
+                    <h3 class="fs-3 mt-5">User Contact</h3>
+                    <div class="user-item">
+                        <p > Country <span>{{userProfile.userDetails?.country}}</span></p>
+                    </div>
+                    <hr>
+                    <div class="user-item">
+                        <p > City <span>{{userProfile.userDetails?.city}}</span></p>
+                    </div>
+                    <hr>
+                    <div class="user-item">
+                        <p > Address <span>{{userProfile.userDetails?.address +'  '+ userProfile.userDetails?.street}}</span></p>
+                    </div>
+                    <hr>
+                    <div class="user-item">
+                        <p > Phone Number <span>{{userProfile.userDetails?.phoneNumber}}</span></p>
+                    </div>
+                    <hr>
+                    <div class="user-item">
+                        <p > Gender <span>{{userProfile.userDetails?.gender}}</span></p>
+                    </div>
+                    <div class="d-flex justify-content-center mt-5">
+                        <button class="btn btn-success px-4 py-2"  (click)="openUpdateDialog()" >
+                            Update Info
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+         
+    </section>
+</div>

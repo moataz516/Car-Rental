@@ -1,0 +1,377 @@
+ <!-- <ul>
+    <li *ngFor="let item of availableCars | paginate: { itemsPerPage: itemPerPage, currentPage: p }"> {{item.model}} </li>
+  </ul>
+             
+  <pagination-controls class="d-flex justify-content-center"  (pageChange)="p = $event"></pagination-controls> 
+
+ -->
+<!-- 
+ <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12  mb-4">
+            <p class="alert border-0  py-4 text-white" style="background-color: #172734c7; font-size:17px"> 
+                STEP 3: Complete the payment method to make reservation. 
+            </p>
+        </div>
+        <div class="col-xl-4 col-lg-5">
+
+            <div class="card pb-3 bg-1">
+                <div class="card-header"  >
+                    <h1 class="pt-2">BOOKING DETAILS
+                    </h1>
+                </div>
+                    <ul class="list-group list-group-flush "  >
+                        <li class="list-group-item" >
+                            <h2 >Pick-up:  </h2>
+                            <h2> {{timeAndPlaceDetails.startDate}}<br> {{timeAndPlaceDetails.location}}</h2>
+                        </li>
+                        <li class="list-group-item">
+                            <h2>Return:   </h2>
+                            <h2>{{timeAndPlaceDetails.endDate}} </h2>
+                        </li>
+                        <li class="list-group-item">
+                            <h2>Rental Duration:   </h2>
+                            <h2>{{durationInDays}}</h2>
+                        </li>
+                        <li class="list-group-item">
+                            <h2>Rental Cost:   </h2>
+                            <h2>{{durationInDays * carSelected.price}}</h2>
+                        </li>
+                        <li class="list-group-item d-inline-block" style="background-color: #415C71 !important;" >
+                            <br>
+                            <div class="img-box border-0 d-flex justify-content-center" style="width:70%">
+                                <img [src]="'data:image/jpeg;base64,' + carSelected.image" alt="car" class="w-100 h-100 " >
+                            </div>
+                            <br>
+                            <div class="d-flex justify-content-center">
+                                <span class="ms-3 " >
+                                    <i class="fa-solid fa-user" style="color: #f2f2f2;"></i> <span class="vt-item"> {{carSelected.vehicleType.capacity}}</span>
+                                </span>
+                                <span class="ms-3 " >
+                                    <i class="fa-solid fa-briefcase" style="color: #f2f2f2;"></i> <span class="vt-item"> 2 </span>
+                                </span>
+                                <span class="ms-3" >
+                                    <i class="fa-solid fa-door-closed" style="color: #f2f2f2;"></i> <span class="vt-item"> {{carSelected.vehicleType.capacity}} </span>
+                                </span>
+                                <span class="ms-3 " >
+                                    <i class="fa-solid fa-gear" style="color: #f2f2f2;"></i> <span class="vt-item"> {{carSelected.vehicleType.transmissionType.charAt(0)}} </span>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+
+        <div class="col-xl-8 col-lg-7  car-box" >
+            <div class="row">
+                <form  [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+
+                    <div class="col-md-6 offset-3 mt-4">
+                        <div class="form-group">
+                          <label for="cardName" class="form-label">Card Name</label>
+                            <input type="text" id="cardName" class="form-control" formControlName="cardName">
+                          </div>
+                    </div>
+                    <div class="col-md-6 offset-3 mt-4">
+                        <div class="form-group">
+                          <label for="cardNumber" class="form-label">Card Number</label>
+                            <input type="number" id="cardNumber" class="form-control" formControlName="cardNumber">
+                          </div>
+                    </div>
+                    <div class="col-md-3 offset-3 mt-4">
+                        <div class="form-group">
+                          <label for="expMonth" class="form-label">Exp Month</label>
+                            <input type="number" id="expMonth" class="form-control" formControlName="expMonth">
+                          </div>
+                    </div>
+                    <div class="col-md-3 offset-3 mt-4">
+                        <div class="form-group">
+                          <label for="expYear" class="form-label">Exp Year</label>
+                            <input type="number" id="expYear" class="form-control" formControlName="expYear">
+                          </div>
+                    </div>
+                    <div class="col-md-6 offset-3 mt-4">
+                        <div class="form-group">
+                          <label for="cvv" class="form-label">Card Number</label>
+                            <input type="number" id="cvv" class="form-control" formControlName="cvv">
+                          </div>
+                    </div>
+                    <div class="col-md-6 offset-3 mt-5">
+                        <button type="submit" class="btn btn-success form-control" >Continue</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+ </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+ <div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 ">
+            <div class="booking-details">
+                    <h1 class="fs-4 fw-normal ">Quick Search</h1>
+                    <hr class="pb-3">
+                    <div class="detail">
+                        <div>
+                            <span>Location:</span> 
+                            <span> {{timeAndPlaceDetails.location}}</span>
+                        </div>
+                        <div>
+                            <span>Start Date:</span>
+                            <span> {{timeAndPlaceDetails.startDate}}</span>    
+                        </div>
+                        <div>
+                            <span>End Date:</span>
+                            <span> {{timeAndPlaceDetails.endDate}}</span>    
+                        </div>
+                        <div>
+                            <span>Duration:</span>
+                            <span> {{durationInDays}}</span>    
+                        </div>
+                        <div>
+                            <span>Total Price:</span>
+                            <span> {{durationInDays * carSelected.price}}</span>    
+                        </div>
+                        <hr class="pt-3">
+                        <div class="px-3">
+                            <img [src]="'data:image/jpeg;base64,' + carSelected.image" alt="car" width="100%" height="100%" alt="{{carSelected.model}}">
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="row">
+                
+                <div class="payment-process">
+                    <form  [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+                        <h1>Payment Info</h1>
+                        <div class="col-md-6 offset-3 mt-4">
+                            <div class="form-group">
+                              <label for="cardName" class="form-label">Card Name</label>
+                                <input type="text" id="cardName" class="form-control" formControlName="cardName">
+                              </div>
+                        </div>
+                        <div class="col-md-6 offset-3 mt-4">
+                            <div class="form-group">
+                              <label for="cardNumber" class="form-label">Card Number</label>
+                                <input type="number" id="cardNumber" class="form-control" formControlName="cardNumber">
+                              </div>
+                        </div>
+                        <div class="col-md-6 offset-3 mt-4">
+                            <div class="form-group">
+                              <label for="expMonth" class="form-label">Exp Month</label>
+                                <input type="number" id="expMonth" class="form-control" formControlName="expMonth">
+                              </div>
+                        </div>
+                        <div class="col-md-6 offset-3 mt-4">
+                            <div class="form-group">
+                              <label for="expYear" class="form-label">Exp Year</label>
+                                <input type="number" id="expYear" class="form-control" formControlName="expYear">
+                              </div>
+                        </div>
+                        <div class="col-md-6 offset-3 mt-4">
+                            <div class="form-group">
+                              <label for="cvv" class="form-label">Card Number</label>
+                                <input type="number" id="cvv" class="form-control" formControlName="cvv">
+                              </div>
+                        </div>
+                        <div class="col-md-6 offset-3 mt-5">
+                            <button type="submit" class="btn btn-success form-control py-2 fs-4" >Processing Data</button>
+                        </div>
+    
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+ </div> -->
+
+
+
+
+
+
+ <div class="container">
+    <div class="row mt-5">
+        <div class="col-md-3 ">
+            <div class="booking-details">
+                    <h1 class="fs-4 fw-normal ">Quick Search</h1>
+                    <hr class="pb-3">
+                    <div class="detail">
+                        <div>
+                            <span>Location:</span> 
+                            <span> {{timeAndPlaceDetails.location}}</span>
+                        </div>
+                        <div>
+                            <span>Start Date:</span>
+                            <span> {{timeAndPlaceDetails.startDate}}</span>    
+                        </div>
+                        <div>
+                            <span>End Date:</span>
+                            <span> {{timeAndPlaceDetails.endDate}}</span>    
+                        </div>
+                        <div>
+                            <span>Duration:</span>
+                            <span> {{durationInDays}}</span>    
+                        </div>
+                        <div>
+                            <span>Total Price:</span>
+                            <span> {{durationInDays * carSelected.price}}</span>    
+                        </div>
+                        <hr class="pt-3">
+                        <div class="px-3">
+                            <img [src]="'data:image/jpeg;base64,' + carSelected.image" alt="car" width="100%" height="100%" alt="{{carSelected.model}}">
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="col-md-6">
+            <div class="customer-details px-4">
+                <h1>Driver Details</h1>
+                <form  [formGroup]="custumerDetailsForm">
+                    <div class="row">
+                        <div class="col-md-12 alert alert-secondary" *ngIf="custumerDetailsForm.invalid">
+                            <p class="fs-4 my-auto">Every Field is reguired</p>
+                        </div>
+                        <div class="col-md-6 mt-4">
+                            <div class="form-group">
+                              <label for="firstName" class="form-label">firstName</label>
+                                <input type="text" id="firstName" class="form-control" formControlName="firstName">
+                                <div *ngIf="custumerDetailsForm.get('firstName').invalid && (custumerDetailsForm.get('firstName').dirty || custumerDetailsForm.get('firstName').touched)">
+                                    <p class=" text-danger">The First Name is Required</p>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-md-6 mt-4">
+                            <div class="form-group">
+                              <label for="lastName" class="form-label">lastName</label>
+                                <input type="text" id="lastName" class="form-control" formControlName="lastName">
+                                <div *ngIf="custumerDetailsForm.get('lastName').invalid && (custumerDetailsForm.get('lastName').dirty || custumerDetailsForm.get('lastName').touched)">
+                                    <p class=" text-danger">The Last Name is Required</p>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-md-6 mt-4">
+                            <div class="form-group">
+                              <label for="Email" class="form-label">Email</label>
+                                <input type="text" id="Email" class="form-control" formControlName="email" >
+                                <div *ngIf="custumerDetailsForm.get('email').invalid && (custumerDetailsForm.get('email').dirty || custumerDetailsForm.get('email').touched)">
+                                    <p class=" text-danger">Email is Required</p>
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-4">
+                            <div class="form-group">
+                              <label for="Phone" class="form-label">Phone</label>
+                                <input type="text" id="Phone" class="form-control" formControlName="phone" >
+                                <div *ngIf="custumerDetailsForm.get('phone').invalid && (custumerDetailsForm.get('phone').dirty || custumerDetailsForm.get('phone').touched)">
+                                    <p class=" text-danger">Mobile Phone is Required</p>
+                                </div>    
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-4">
+                            <div class="form-group">
+                              <label for="dateOfBirth" class="form-label">Date of Birth</label>
+                                <input type="date" id="dateOfBirth" class="form-control" formControlName="dateOfBirth">
+                                <div *ngIf="custumerDetailsForm.get('dateOfBirth').invalid && (custumerDetailsForm.get('dateOfBirth').dirty || custumerDetailsForm.get('dateOfBirth').touched)">
+                                    <p class=" text-danger">Birth of Date is Required</p>
+                                </div>      
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="col-md-3">
+            <div class="payment-process">
+                <form  [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+                    <h1>Payment Info</h1>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="cardName" class="form-label">Card Name</label>
+                                <input type="text" id="cardName" class="form-control" formControlName="cardName">
+                                <div *ngIf="paymentForm.get('cardName').invalid && (paymentForm.get('cardName').dirty || paymentForm.get('cardName').touched)">
+                                    <p class=" text-danger">Card Name is Required</p>
+                                </div>   
+                              </div>
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            <div class="form-group">
+                              <label for="cardNumber" class="form-label">Card Number</label>
+                                <input type="number" id="cardNumber" class="form-control" formControlName="cardNumber">
+                                <div *ngIf="paymentForm.get('cardNumber').invalid && (paymentForm.get('cardNumber').dirty || paymentForm.get('cardNumber').touched)">
+                                    <p class=" text-danger">Card Number is Required</p>
+                                </div>   
+                              </div>
+                        </div>
+                        <div class="col-md-6 mt-4">
+                            <div class="form-group">
+                              <label for="expMonth" class="form-label">Exp Month</label>
+                                <input type="number" id="expMonth" class="form-control" formControlName="expMonth">
+                                <div *ngIf="paymentForm.get('expMonth').invalid && (paymentForm.get('expMonth').dirty || paymentForm.get('expMonth').touched)">
+                                    <p class=" text-danger">Expiration Month is Required</p>
+                                </div>   
+                              </div>
+                        </div>
+                        <div class="col-md-6 mt-4">
+                            <div class="form-group">
+                              <label for="expYear" class="form-label">Exp Year</label>
+                                <input type="number" id="expYear" class="form-control" formControlName="expYear">
+                                <div *ngIf="paymentForm.get('expYear').invalid && (paymentForm.get('expYear').dirty || paymentForm.get('expYear').touched)">
+                                    <p class=" text-danger">Expiration Year is Required</p>
+                                </div>   
+                              </div>
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            <div class="form-group">
+                              <label for="cvv" class="form-label">CVV</label>
+                                <input type="number" id="cvv" class="form-control" formControlName="cvv">
+                                <div *ngIf="paymentForm.get('cvv').invalid && (paymentForm.get('cvv').dirty || paymentForm.get('cvv').touched)">
+                                    <p class=" text-danger">CVV is Required</p>
+                                </div>   
+                              </div>
+                        </div>
+                        <div class="col-md-12 mt-5">
+                            <button type="submit" class="btn btn-success form-control py-2 fs-4" [disabled]="!(paymentForm.valid && custumerDetailsForm.valid)  " >Processing Data</button>
+                        </div>
+    
+                    </div>
+                    </form>
+            </div>
+        </div>
+
+    </div>
+</div>
